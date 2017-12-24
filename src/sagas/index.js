@@ -8,7 +8,7 @@ function* getGames(action) {
     const games = yield call(api.getGames);
     yield put({ type: 'GET_GAMES_SUCCEEDED', payload: games });
   } catch (e) {
-    yield put({ type: 'GET_GAMES_FAILED ' });
+    yield put({ type: 'GET_GAMES_FAILED' });
   }
 }
 

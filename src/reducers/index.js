@@ -8,7 +8,7 @@ import fetchStatus from 'reducers/fetchStatus';
 
 const config = {
   key: 'root',
-  blacklist: ['fetchStatus'],
+  blacklist: ['fetchStatus', 'started'],
   storage,
 };
 

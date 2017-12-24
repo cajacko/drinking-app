@@ -33,7 +33,7 @@ class Game extends PureComponent {
 
     return (
       <Container>
-        <Heading>Error oh no</Heading>
+        <Heading>Hit an error, try refreshing</Heading>
       </Container>
     );
   }
