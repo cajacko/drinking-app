@@ -1,4 +1,5 @@
-// Webpack config for the renderer process
+require('dotenv').config();
+
 import webpack from 'webpack';
 import { resolve, join } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -48,6 +49,12 @@ module.exports = {
         warnings: false,
       },
       comments: false,
+    }),
+    new webpack.DefinePlugin({
+      'process.env.CONTENTFUL_SPACE': `'${process.env.CONTENTFUL_SPACE}'`,
+      'process.env.CONTENTFUL_ACCESS_TOKEN': `'${
+        process.env.CONTENTFUL_ACCESS_TOKEN
+      }'`,
     }),
   ],
   output: {

@@ -3,3 +3,4 @@ lib
 .DS_Store
 temp
 .yo-rc.json
+.env

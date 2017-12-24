@@ -1,10 +1,17 @@
+import { createClient } from 'contentful';
+
 class Api {
+  constructor() {
+    this.client = createClient({
+      space: process.env.CONTENTFUL_SPACE,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    });
+
+    this.getGames = this.getGames.bind(this);
+  }
+
   getGames() {
-    return Promise.resolve([
-      '{person1} must drink whilst {person2} does nothing',
-      'Everyone drinks',
-      '{person1}, {person2} and {person3} drinks',
-    ]);
+    return this.client.getEntries();
   }
 }
 
