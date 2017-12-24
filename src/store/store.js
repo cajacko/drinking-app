@@ -1,17 +1,18 @@
-const { Iterable } = require('immutable');
+import { Iterable } from 'immutable';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import reducers from 'reducers';
 import sagas from 'sagas';
+import { persistStore } from 'redux-persist';
+import reducers from 'reducers';
 
 let composeEnhancers = compose;
 
 const logger = createLogger({
-  stateTransformer: state => {
-    let newState = {};
+  stateTransformer: (state) => {
+    const newState = {};
 
-    for (var i of Object.keys(state)) {
+    for (const i of Object.keys(state)) {
       if (Iterable.isIterable(state[i])) {
         newState[i] = state[i].toJS();
       } else {
@@ -35,9 +36,14 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducers,
   {},
-  composeEnhancers(applyMiddleware(logger, sagaMiddleware)),
+  composeEnhancers(applyMiddleware(logger, sagaMiddleware))
 );
+
+const persistor = persistStore(store);
 
 sagaMiddleware.run(sagas);
 
-export default () => store;
+export default () => ({
+  store,
+  persistor,
+});

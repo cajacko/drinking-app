@@ -2,14 +2,17 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from 'store/store';
+import getStore from 'store/store';
 import App from 'components/App';
+import { PersistGate } from 'redux-persist/es/integration/react';
 
-const storeInstance = store();
+const { store, persistor } = getStore();
 
 ReactDOM.render(
-  <Provider store={storeInstance}>
-    <App />
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
-  document.querySelector('#app'),
+  document.querySelector('#app')
 );
