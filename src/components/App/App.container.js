@@ -44,8 +44,7 @@ const mapStateToProps = ({ propFromStore }, { propPassedToComponent }) => {
  *                             component
  */
 const mapDispatchToProps = (dispatch, { propPassedToComponent }) => ({
-  // action: paramFromFuncCall =>
-  //   dispatch(exampleAction(paramFromFuncCall, propPassedToComponent)),
+  action: () => dispatch({ type: 'GET_NEXT_PHOTOS_REQUESTED' }),
 });
 
 // Connect the component to redux via "connect".

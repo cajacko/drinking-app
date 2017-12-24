@@ -31,6 +31,10 @@ class AppComponent extends PureComponent {
     this.state = { value: '' };
   }
 
+  componentDidMount() {
+    this.props.action();
+  }
+
   /**
    * Example method
    *
