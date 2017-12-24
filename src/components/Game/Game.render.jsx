@@ -1,33 +1,40 @@
 import React, { PureComponent } from 'react';
-import { Container, Div, Text, Button } from 'components/Game/Game.style';
+import {
+  Container,
+  Heading,
+  Text,
+  Stop,
+  Background,
+} from 'components/Game/Game.style';
+import Button from 'components/Button';
 
 class Game extends PureComponent {
   render() {
     if (this.props.game) {
       return (
-        <div>
-          <button onClick={this.props.stop}>Stop</button>
+        <Container>
+          <Stop onClick={this.props.stop}>Stop</Stop>
 
-          <div>
-            <p>{this.props.game}</p>
-            <button onClick={this.props.next}>Next</button>
-          </div>
-        </div>
+          <Background>
+            <Text>{this.props.game}</Text>
+            <Button onClick={this.props.next}>Next</Button>
+          </Background>
+        </Container>
       );
     }
 
     if (this.props.fetchStatus === 'REQUESTED') {
       return (
-        <div>
-          <h1>Loading</h1>
-        </div>
+        <Container>
+          <Heading>Loading</Heading>
+        </Container>
       );
     }
 
     return (
-      <div>
-        <h1>Error oh no</h1>
-      </div>
+      <Container>
+        <Heading>Error oh no</Heading>
+      </Container>
     );
   }
 }

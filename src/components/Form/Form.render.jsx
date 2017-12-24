@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Container, InnerContainer } from 'components/Form/Form.style';
+import Button from 'components/Button';
 
 class Form extends PureComponent {
   render() {
@@ -11,9 +12,9 @@ class Form extends PureComponent {
               {this.props.names.map(name => (
                 <li key={name}>
                   <span>{name}</span>
-                  <button onClick={() => this.props.delete(name)}>
+                  <Button onClick={() => this.props.delete(name)}>
                     Delete
-                  </button>
+                  </Button>
                 </li>
               ))}
             </ul>
@@ -25,10 +26,10 @@ class Form extends PureComponent {
             value={this.props.value}
           />
 
-          <button onClick={this.props.add} type="submit">
+          <Button onClick={this.props.add} type="submit">
             Add
-          </button>
-          <button onClick={this.props.start}>Start</button>
+          </Button>
+          <Button onClick={this.props.start}>Start</Button>
         </InnerContainer>
       </Container>
     );
