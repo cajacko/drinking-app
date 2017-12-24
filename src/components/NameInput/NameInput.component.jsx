@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import App from 'components/App/App.render';
+import NameInput from 'components/NameInput/NameInput.render';
 
 /**
- * Business logic for the App component.
+ * Business logic for the NameInput component.
  *
  * Does not render any markup, as markup is only handled but a .render
  * component. This helps to seperate the presentation logic from managing the
@@ -14,7 +14,7 @@ import App from 'components/App/App.render';
  *
  * @extends PureComponent
  */
-class AppComponent extends PureComponent {
+class NameInputComponent extends PureComponent {
   /**
    * Initialise the class, set the initial state and bind the methods
    *
@@ -29,10 +29,6 @@ class AppComponent extends PureComponent {
 
     // TODO: Delete/adjust necessary
     this.state = { value: '' };
-  }
-
-  componentDidMount() {
-    this.props.action();
   }
 
   /**
@@ -60,7 +56,7 @@ class AppComponent extends PureComponent {
    */
   render() {
     return (
-      <App
+      <NameInput
         prop1={this.props.prop1}
         prop2={this.props.prop2}
         value={this.state.value}
@@ -70,17 +66,16 @@ class AppComponent extends PureComponent {
   }
 }
 
-AppComponent.propTypes = {
-  prop1: PropTypes.string,
+NameInputComponent.propTypes = {
+  // prop1: PropTypes.string.isRequired,
   prop2: PropTypes.bool,
   prop3: PropTypes.func,
 };
 
 // TODO: Delete as necessary
-AppComponent.defaultProps = {
-  prop1: '',
+NameInputComponent.defaultProps = {
   prop2: false,
   prop3: () => {},
 };
 
-export default AppComponent;
+export default NameInputComponent;
