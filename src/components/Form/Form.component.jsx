@@ -9,6 +9,7 @@ class FormComponent extends PureComponent {
     this.add = this.add.bind(this);
     this.start = this.start.bind(this);
     this.delete = this.delete.bind(this);
+    this.setInputRef = this.setInputRef.bind(this);
 
     this.state = { value: '', names: props.names || [] };
   }
@@ -21,6 +22,10 @@ class FormComponent extends PureComponent {
     if (value !== this.state.value) this.setState({ value });
   }
 
+  setInputRef(ref) {
+    this.input = ref;
+  }
+
   add(event) {
     event.preventDefault();
 
@@ -28,9 +33,13 @@ class FormComponent extends PureComponent {
     names.push(this.state.value);
 
     this.setState({ value: '', names });
+
+    this.input.focus();
   }
 
-  delete(nameToDelete) {
+  delete(event, nameToDelete) {
+    event.preventDefault();
+
     const names = this.state.names.filter(name => name !== nameToDelete);
 
     this.setState({ names });
@@ -51,6 +60,7 @@ class FormComponent extends PureComponent {
         names={this.state.names}
         start={this.start}
         delete={this.delete}
+        setInputRef={this.setInputRef}
       />
     );
   }

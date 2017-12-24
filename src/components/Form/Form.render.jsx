@@ -1,34 +1,45 @@
 import React, { PureComponent } from 'react';
-import { Container, InnerContainer } from 'components/Form/Form.style';
+import {
+  Container,
+  InnerContainer,
+  List,
+  ListItem,
+  Name,
+  Input,
+  InputContainer,
+} from 'components/Form/Form.style';
 import Button from 'components/Button';
 
 class Form extends PureComponent {
   render() {
     return (
       <Container>
-        <InnerContainer onSubmit={this.props.add}>
+        <InnerContainer>
           {this.props.names && (
-            <ul>
+            <List>
               {this.props.names.map(name => (
-                <li key={name}>
-                  <span>{name}</span>
-                  <Button onClick={() => this.props.delete(name)}>
+                <ListItem key={name}>
+                  <Name>{name}</Name>
+                  <Button onClick={event => this.props.delete(event, name)}>
                     Delete
                   </Button>
-                </li>
+                </ListItem>
               ))}
-            </ul>
+            </List>
           )}
 
-          <input
-            type="text"
-            onChange={this.props.onChange}
-            value={this.props.value}
-          />
+          <InputContainer onSubmit={this.props.add}>
+            <Input
+              type="text"
+              onChange={this.props.onChange}
+              value={this.props.value}
+              innerRef={this.props.setInputRef}
+            />
 
-          <Button onClick={this.props.add} type="submit">
-            Add
-          </Button>
+            <Button onClick={this.props.add} type="submit">
+              Add
+            </Button>
+          </InputContainer>
           <Button onClick={this.props.start}>Start</Button>
         </InnerContainer>
       </Container>
