@@ -34,6 +34,7 @@ class Form extends PureComponent {
               onChange={this.props.onChange}
               value={this.props.value}
               innerRef={this.props.setInputRef}
+              placeholder="Enter a players name"
             />
 
             <Button onClick={this.props.add} type="submit">
