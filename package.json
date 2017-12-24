@@ -1,0 +1,24 @@
+{
+  "name": "drinking-app",
+  "version": "0.1.0",
+  "description": "One of those drinking games as a web app",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/cajacko/drinking-app.git",
+  "author": "Charlie Jackson",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
