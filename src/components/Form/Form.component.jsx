@@ -10,7 +10,7 @@ class FormComponent extends PureComponent {
     this.start = this.start.bind(this);
     this.delete = this.delete.bind(this);
 
-    this.state = { value: '', names: [] };
+    this.state = { value: '', names: props.names || [] };
   }
 
   onChange(event) {

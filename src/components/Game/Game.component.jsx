@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import shuffle from 'shuffle-array';
 import Game from 'components/Game/Game.render';
 
 class GameComponent extends PureComponent {
@@ -22,15 +23,34 @@ class GameComponent extends PureComponent {
     while (!game && locationsTried.length < games.length) {
       const gamesToTry = games.filter((text, gameId) => !locationsTried.includes(gameId));
       const gameId = Math.floor(Math.random() * gamesToTry.length);
-      game = this.setGameText(names, games[gameId]);
+      game = this.setGameText(names, gamesToTry[gameId]);
       locationsTried.push(gameId);
     }
 
     return game;
   }
 
+  getNamePlaceholders(game) {
+    const re = /\{(.*?)\}/g;
+    return game.match(re) || [];
+  }
+
   setGameText(names, game) {
-    return game;
+    const shuffledNames = names.slice();
+    shuffle(shuffledNames);
+
+    const namePlaceholders = this.getNamePlaceholders(game);
+
+    if (!namePlaceholders || namePlaceholders.length === 0) return game;
+    if (namePlaceholders.length > shuffledNames.length) return null;
+
+    let gameText = game;
+
+    namePlaceholders.forEach((namePlaceholder, i) => {
+      gameText = gameText.replace(namePlaceholder, shuffledNames[i]);
+    });
+
+    return gameText;
   }
 
   next(event) {
