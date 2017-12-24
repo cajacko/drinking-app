@@ -1,6 +1,6 @@
 class Api {
-  getNextPhotos() {
-    return Promise.resolve();
+  getGames() {
+    return Promise.resolve(['Hello people', 'Wee wee woo']);
   }
 }
 

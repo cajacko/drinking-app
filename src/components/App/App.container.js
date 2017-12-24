@@ -5,4 +5,8 @@ const mapStateToProps = ({ names, started }) => ({
   started: started && names && names.length > 0,
 });
 
-export default connect(mapStateToProps, undefined)(App);
+const mapDispatchToProps = dispatch => ({
+  getGames: () => dispatch({ type: 'GET_GAMES_REQUESTED' }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

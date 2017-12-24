@@ -3,17 +3,17 @@ import Api from 'models/Api';
 
 const api = new Api();
 
-function* getNextPhotos(action) {
+function* getGames(action) {
   try {
-    const photos = yield call(api.getNextPhotos, action.payload);
-    yield put({ type: 'SUCCESS ' });
+    const games = yield call(api.getGames);
+    yield put({ type: 'GET_GAMES_SUCCEEDED', payload: games });
   } catch (e) {
-    yield put({ type: 'FAILED ' });
+    yield put({ type: 'GET_GAMES_FAILED ' });
   }
 }
 
 function* mySaga() {
-  yield takeEvery('GET_NEXT_PHOTOS_REQUESTED', getNextPhotos);
+  yield takeEvery('GET_GAMES_REQUESTED', getGames);
 }
 
 export default mySaga;
