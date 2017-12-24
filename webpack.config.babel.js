@@ -35,7 +35,7 @@ module.exports = {
   },
   plugins: [
     // Auto generates the index.html file from our template
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: join(__dirname, 'src/index.html') }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       beautify: false,
