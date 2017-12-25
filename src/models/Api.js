@@ -11,7 +11,7 @@ class Api {
   }
 
   getGames() {
-    return this.client.getEntries();
+    return this.client.sync({ initial: true });
   }
 }
 
