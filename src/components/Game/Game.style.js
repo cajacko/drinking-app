@@ -22,7 +22,6 @@ export const Heading = styled.h1`
 `;
 
 export const Text = styled.p`
-  font-size: 30px;
   margin-bottom: 30px;
   font-family: helvetica, sans-serif;
   max-width: 800px;
@@ -30,6 +29,19 @@ export const Text = styled.p`
   text-align: center;
   display: block;
   line-height: 1.5;
+  font-size: 30px;
+
+  @media (max-width: 800px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 export const Stop = Button.extend`
