@@ -6,6 +6,7 @@ import {
   Stop,
   Background,
   Edit,
+  Footer,
 } from 'components/Game/Game.style';
 import Button from 'components/Button';
 
@@ -19,8 +20,11 @@ class Game extends PureComponent {
 
           <Background>
             <Text>{this.props.game}</Text>
-            <Button onClick={this.props.next}>Next</Button>
           </Background>
+
+          <Footer>
+            <Button onClick={this.props.next}>Next</Button>
+          </Footer>
         </Container>
       );
     }

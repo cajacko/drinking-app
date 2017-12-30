@@ -57,3 +57,14 @@ export const Edit = Button.extend`
   right: 0;
   z-index: 2;
 `;
+
+export const Footer = styled.div`
+  posiiton: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  pading-bottom: 10px;
+`;
+
