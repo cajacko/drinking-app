@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
+import Textarea from 'react-textarea-autosize';
 import {
   Container,
   Header,
   Example,
-  NewGame,
+  newGame,
   List,
   Game,
-  GameText,
+  gameText,
   Update,
   Remove,
   Buttons,
@@ -42,8 +43,9 @@ class GamesList extends PureComponent {
               <Text>{text}</Text>
             </Example>
             <NewGameInputs>
-              <NewGame
-                placeholder="Game text"
+              <Textarea
+                style={newGame}
+                placeholder="Click here to add game text"
                 value={this.props.addGameValue}
                 onChange={this.props.addGameOnChange}
               />
@@ -58,9 +60,10 @@ class GamesList extends PureComponent {
               {this.props.games.map((game, i) => (
                 <Game key={game}>
                   <ScrollTo id={`game-${i}`} />
-                  <GameText
+                  <Textarea
                     value={this.props.updates[i] || game}
                     onChange={event => this.props.changeGameText(event, i)}
+                    style={gameText}
                   />
                   <Buttons>
                     <Update>

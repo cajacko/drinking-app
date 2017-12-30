@@ -1,6 +1,14 @@
 import styled from 'cj-pattern-library/lib/helpers/styledComponents';
 import { GREY_LIGHT } from 'cj-pattern-library/lib/constants/colours';
 
+const textarea = {
+  flex: 1,
+  fontFamily: 'helvetica, sans-serif',
+  fontSize: 16,
+  border: 0,
+  lineHeight: 1.5,
+};
+
 export const Nav = styled.nav`
   position: absolute;
   left: 0;
@@ -37,13 +45,10 @@ export const NewGameContainer = styled.div`
 
 export const NewGameInputs = styled.div``;
 
-export const NewGame = styled.textarea`
-  margin-right: 20px;
-  flex: 1;
-  font-family: helvetica, sans-serif;
-  font-size: 16px;
-  padding: 10px;
-`;
+export const newGame = {
+  ...textarea,
+  marginRight: 20,
+};
 
 export const List = styled.ul`
   flex-direction: column;
@@ -52,14 +57,11 @@ export const List = styled.ul`
 export const Game = styled.li`
   margin-bottom: 20px;
   position: relative;
+  border-bottom: 1px solid ${GREY_LIGHT};
+  padding-bottom: 20px;
 `;
 
-export const GameText = styled.textarea`
-  flex: 1;
-  font-family: helvetica, sans-serif;
-  font-size: 16px;
-  padding: 10px;
-`;
+export const gameText = textarea;
 
 export const Buttons = styled.div`
   flex-direction: column;
