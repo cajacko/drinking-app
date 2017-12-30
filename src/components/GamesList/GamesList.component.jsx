@@ -20,6 +20,7 @@ class GamesListComponent extends PureComponent {
 
     games.unshift(this.state.addGameValue);
 
+    this.setState({ addGameValue: '' });
     this.props.setGames(games);
   }
 

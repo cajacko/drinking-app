@@ -7,6 +7,7 @@ import {
   Name,
   Input,
   InputContainer,
+  GameList,
 } from 'components/Form/Form.style';
 import Button from 'components/Button';
 
@@ -42,7 +43,9 @@ class Form extends PureComponent {
             </Button>
           </InputContainer>
           <Button onClick={this.props.start}>Start</Button>
-          <Button onClick={this.props.goToGames}>Games list</Button>
+          <GameList>
+            <Button onClick={this.props.goToGames}>Games list</Button>
+          </GameList>
         </InnerContainer>
       </Container>
     );

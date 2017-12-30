@@ -43,3 +43,8 @@ export const InputContainer = styled.form`
   margin-bottom: 40px;
   width: 100%;
 `;
+
+export const GameList = styled.div`
+  margin-top: 30px;
+`;
+

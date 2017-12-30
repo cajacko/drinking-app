@@ -29,8 +29,6 @@ class Api {
   }
 
   setGames(games) {
-    return Promise.resolve();
-
     return fetch(this.url, {
       headers: {
         Accept: 'application/json',
