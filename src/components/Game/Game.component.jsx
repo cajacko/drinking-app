@@ -57,8 +57,6 @@ class GameComponent extends PureComponent {
 
     let gameText = game;
 
-    console.warn(namePlaceholders);
-
     namePlaceholders.forEach((namePlaceholder, i) => {
       const regex = new RegExp(namePlaceholder, 'g');
       gameText = gameText.replace(regex, shuffledNames[i]);
