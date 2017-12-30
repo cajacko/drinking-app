@@ -18,7 +18,7 @@ class Game extends PureComponent {
           <Stop onClick={this.props.stop}>Stop</Stop>
           <Edit onClick={this.props.edit}>Edit</Edit>
 
-          <Background>
+          <Background onClick={this.props.next}>
             <Text>{this.props.game}</Text>
           </Background>
 

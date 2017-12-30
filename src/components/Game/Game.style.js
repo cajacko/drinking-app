@@ -14,6 +14,7 @@ export const Background = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 export const Heading = styled.h1`
@@ -67,4 +68,3 @@ export const Footer = styled.div`
   justify-content: center;
   pading-bottom: 10px;
 `;
-
