@@ -15,6 +15,8 @@ import {
   Heading,
   Content,
   Text,
+  Nav,
+  ScrollTo,
 } from 'components/GamesList/GamesList.style';
 import Button from 'components/Button';
 
@@ -29,8 +31,10 @@ class GamesList extends PureComponent {
     const text = '{player1} can give {player2} any number of fingers.';
     return (
       <Container>
-        <Header>
+        <Nav>
           <Button onClick={this.props.back}>Back</Button>
+        </Nav>
+        <Header>
           <NewGameContainer>
             <Heading>Add new Game</Heading>
             <Example>
@@ -52,7 +56,8 @@ class GamesList extends PureComponent {
             <Heading>Games</Heading>
             <List>
               {this.props.games.map((game, i) => (
-                <Game key={game} id={`game-${i}`}>
+                <Game key={game}>
+                  <ScrollTo id={`game-${i}`} />
                   <GameText
                     value={this.props.updates[i] || game}
                     onChange={event => this.props.changeGameText(event, i)}

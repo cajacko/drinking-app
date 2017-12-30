@@ -1,14 +1,30 @@
 import styled from 'cj-pattern-library/lib/helpers/styledComponents';
 import { GREY_LIGHT } from 'cj-pattern-library/lib/constants/colours';
 
+export const Nav = styled.nav`
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: ${GREY_LIGHT};
+  padding: 10px;
+  z-index: 2;
+`;
+
 export const Container = styled.section`
   flex-direction: column;
   flex: 1;
 `;
 
 export const Header = styled.header`
+  margin-top: 60px;
   margin-bottom: 40px;
   flex-direction: column;
+`;
+
+export const ScrollTo = styled.div`
+  top: -60px;
+  position: absolute;
 `;
 
 export const Example = styled.div`
@@ -35,6 +51,7 @@ export const List = styled.ul`
 
 export const Game = styled.li`
   margin-bottom: 20px;
+  position: relative;
 `;
 
 export const GameText = styled.textarea`
