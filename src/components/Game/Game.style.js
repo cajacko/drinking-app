@@ -1,5 +1,26 @@
 import styled from 'cj-pattern-library/lib/helpers/styledComponents';
-import Button from 'components/Button';
+import { GREY, WHITE } from 'cj-pattern-library/lib/constants/colours';
+
+const Button = styled.button`
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  width: 120px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid ${WHITE};
+  outline: none;
+  display: block;
+  color: ${WHITE};
+  font-family: helvetica, sans-serif;
+
+  :hover {
+    border: 1px solid ${GREY};
+    color: ${GREY};
+    text-decoration: underline;
+  }
+`;
 
 export const Container = styled.div`
   flex: 1;
@@ -7,6 +28,14 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  background: ${({ colour }) => colour};
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Background = styled.div`
@@ -15,6 +44,7 @@ export const Background = styled.div`
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
+  padding: 0 20px;
 `;
 
 export const Heading = styled.h1`
@@ -31,6 +61,7 @@ export const Text = styled.p`
   display: block;
   line-height: 1.5;
   font-size: 30px;
+  color: ${WHITE};
 
   @media (max-width: 800px) {
     font-size: 26px;
@@ -47,24 +78,25 @@ export const Text = styled.p`
 
 export const Stop = Button.extend`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
   z-index: 2;
 `;
 
 export const Edit = Button.extend`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   z-index: 2;
 `;
 
 export const Footer = styled.div`
-  posiiton: absolute;
+  position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 20px;
   align-items: center;
   justify-content: center;
-  pading-bottom: 10px;
 `;
+
+export const Next = Button.extend``;

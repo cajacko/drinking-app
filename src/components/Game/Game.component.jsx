@@ -12,6 +12,32 @@ class GameComponent extends PureComponent {
     this.state = this.getRandomGame(props);
   }
 
+  getNewColour(colour) {
+    const colours = [
+      '#ec3e3e',
+      '#975bd8',
+      '#08af79',
+      '#0898af',
+      '#ef8213',
+      '#3e8cec',
+      '#ec3e8e',
+    ];
+
+    if (!colour) return colours[0];
+
+    for (let i = 0; i < colours.length; i += 1) {
+      const nextColour = colours[i];
+
+      if (colour === nextColour) {
+        if (colours[i + 1]) return colours[i + 1];
+
+        return colours[0];
+      }
+    }
+
+    return colours[0];
+  }
+
   getRandomGame({ games, names }) {
     if (!games || !names || names.length < 1 || games.length < 1) {
       return null;
@@ -36,7 +62,9 @@ class GameComponent extends PureComponent {
       locationsTried.push(gameId);
     }
 
-    return { game, gameIndex };
+    const colour = this.getNewColour(this.state && this.state.colour);
+
+    return { game, gameIndex, colour };
   }
 
   getNamePlaceholders(game) {
@@ -85,6 +113,7 @@ class GameComponent extends PureComponent {
         game={this.state.game}
         fetchStatus={this.props.fetchStatus}
         edit={this.edit}
+        colour={this.state.colour}
       />
     );
   }

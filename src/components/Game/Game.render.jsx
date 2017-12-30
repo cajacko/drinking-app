@@ -7,14 +7,14 @@ import {
   Background,
   Edit,
   Footer,
+  Next,
 } from 'components/Game/Game.style';
-import Button from 'components/Button';
 
 class Game extends PureComponent {
   render() {
     if (this.props.game) {
       return (
-        <Container>
+        <Container colour={this.props.colour}>
           <Stop onClick={this.props.stop}>Stop</Stop>
           <Edit onClick={this.props.edit}>Edit</Edit>
 
@@ -23,7 +23,7 @@ class Game extends PureComponent {
           </Background>
 
           <Footer>
-            <Button onClick={this.props.next}>Next</Button>
+            <Next onClick={this.props.next}>Next</Next>
           </Footer>
         </Container>
       );
