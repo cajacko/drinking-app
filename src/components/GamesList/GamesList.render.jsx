@@ -19,7 +19,14 @@ class GamesList extends PureComponent {
           <ul>
             {this.props.games.map((game, i) => (
               <li key={game}>
-                <span>{game}</span>
+                <textarea
+                  value={this.props.updates[i] || game}
+                  onChange={event => this.props.changeGameText(event, i)}
+                />
+
+                <Button onClick={event => this.props.update(event, i)}>
+                  Update
+                </Button>
                 <Button onClick={event => this.props.removeGame(event, i)}>
                   Remove
                 </Button>
