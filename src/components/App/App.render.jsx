@@ -6,6 +6,7 @@ import Game from 'components/Game';
 class App extends PureComponent {
   componentDidMount() {
     this.props.getGames();
+    // this.props.setGames(this.props.games);
   }
 
   render() {

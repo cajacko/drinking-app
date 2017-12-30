@@ -2,16 +2,46 @@ import { createClient } from 'contentful';
 
 class Api {
   constructor() {
-    this.client = createClient({
-      space: process.env.CONTENTFUL_SPACE,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    });
+    this.url = `https://api.myjson.com/bins/${process.env.MYJSONID}`;
 
     this.getGames = this.getGames.bind(this);
+    this.setGames = this.setGames.bind(this);
   }
 
   getGames() {
-    return this.client.sync({ initial: true });
+    return fetch(this.url)
+      .then((response) => {
+        const contentType = response.headers.get('content-type');
+
+        if (contentType && contentType.includes('application/json')) {
+          return response.json();
+        }
+
+        throw new TypeError("Oops, we haven't got JSON!");
+      })
+      .then((games) => {
+        if (!Array.isArray(games)) {
+          throw new TypeError('Response is not an array');
+        }
+
+        return games;
+      });
+  }
+
+  setGames(games) {
+    console.warn(games);
+    return fetch(this.url, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'PUT',
+      body: JSON.stringify(games),
+    }).then((response) => {
+      if (response.status !== 200) {
+        throw new Error('Failed to save data, non 200 response');
+      }
+    });
   }
 }
 

@@ -51,10 +51,7 @@ module.exports = {
       comments: false,
     }),
     new webpack.DefinePlugin({
-      'process.env.CONTENTFUL_SPACE': `'${process.env.CONTENTFUL_SPACE}'`,
-      'process.env.CONTENTFUL_ACCESS_TOKEN': `'${
-        process.env.CONTENTFUL_ACCESS_TOKEN
-      }'`,
+      'process.env.MYJSONID': `'${process.env.MYJSONID}'`,
     }),
   ],
   output: {

@@ -12,8 +12,18 @@ function* getGames(action) {
   }
 }
 
+function* setGames({ payload }) {
+  try {
+    yield call(api.setGames, payload);
+    yield put({ type: 'SET_GAMES_SUCCEEDED' });
+  } catch (e) {
+    yield put({ type: 'SET_GAMES_FAILED', payload: e });
+  }
+}
+
 function* mySaga() {
   yield takeEvery('GET_GAMES_REQUESTED', getGames);
+  yield takeEvery('SET_GAMES_REQUESTED', setGames);
 }
 
 export default mySaga;
