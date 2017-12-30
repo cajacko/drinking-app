@@ -5,3 +5,4 @@ temp
 .yo-rc.json
 .env
 dist
+firebase-debug.log

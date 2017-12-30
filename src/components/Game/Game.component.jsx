@@ -41,7 +41,9 @@ class GameComponent extends PureComponent {
 
   getNamePlaceholders(game) {
     const re = /\{(.*?)\}/g;
-    return game.match(re) || [];
+    const namePlaceholders = game.match(re) || [];
+
+    return namePlaceholders.filter((elem, index, self) => index === self.indexOf(elem));
   }
 
   setGameText(names, game) {
@@ -55,8 +57,11 @@ class GameComponent extends PureComponent {
 
     let gameText = game;
 
+    console.warn(namePlaceholders);
+
     namePlaceholders.forEach((namePlaceholder, i) => {
-      gameText = gameText.replace(namePlaceholder, shuffledNames[i]);
+      const regex = new RegExp(namePlaceholder, 'g');
+      gameText = gameText.replace(regex, shuffledNames[i]);
     });
 
     return gameText;
