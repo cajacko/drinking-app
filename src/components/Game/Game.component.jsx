@@ -7,8 +7,9 @@ class GameComponent extends PureComponent {
     super(props);
 
     this.next = this.next.bind(this);
+    this.edit = this.edit.bind(this);
 
-    this.state = { game: this.getRandomGame(props) };
+    this.state = this.getRandomGame(props);
   }
 
   getRandomGame({ games, names }) {
@@ -19,15 +20,23 @@ class GameComponent extends PureComponent {
     let game;
 
     const locationsTried = [];
+    let gameIndex = null;
+
+    const setGameIndex = (gamesToTry, gameId) => (gameText, i) => {
+      if (gameText === gamesToTry[gameId]) gameIndex = i;
+    };
 
     while (!game && locationsTried.length < games.length) {
       const gamesToTry = games.filter((text, gameId) => !locationsTried.includes(gameId));
       const gameId = Math.floor(Math.random() * gamesToTry.length);
       game = this.setGameText(names, gamesToTry[gameId]);
+
+      this.props.games.forEach(setGameIndex(gamesToTry, gameId));
+
       locationsTried.push(gameId);
     }
 
-    return game;
+    return { game, gameIndex };
   }
 
   getNamePlaceholders(game) {
@@ -56,7 +65,13 @@ class GameComponent extends PureComponent {
   next(event) {
     event.preventDefault();
 
-    this.setState({ game: this.getRandomGame(this.props) });
+    this.setState(this.getRandomGame(this.props));
+  }
+
+  edit(event) {
+    event.preventDefault();
+
+    this.props.showGamesList(this.state.gameIndex);
   }
 
   render() {
@@ -66,6 +81,7 @@ class GameComponent extends PureComponent {
         stop={this.props.stop}
         game={this.state.game}
         fetchStatus={this.props.fetchStatus}
+        edit={this.edit}
       />
     );
   }

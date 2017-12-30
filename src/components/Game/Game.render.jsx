@@ -5,6 +5,7 @@ import {
   Text,
   Stop,
   Background,
+  Edit,
 } from 'components/Game/Game.style';
 import Button from 'components/Button';
 
@@ -14,6 +15,7 @@ class Game extends PureComponent {
       return (
         <Container>
           <Stop onClick={this.props.stop}>Stop</Stop>
+          <Edit onClick={this.props.edit}>Edit</Edit>
 
           <Background>
             <Text>{this.props.game}</Text>

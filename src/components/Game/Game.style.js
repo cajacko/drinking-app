@@ -38,3 +38,10 @@ export const Stop = Button.extend`
   left: 0;
   z-index: 2;
 `;
+
+export const Edit = Button.extend`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+`;

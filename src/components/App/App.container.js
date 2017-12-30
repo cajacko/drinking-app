@@ -3,7 +3,7 @@ import App from 'components/App/App.render';
 
 const mapStateToProps = ({ names, started, showGamesList }) => ({
   started: started && names && names.length > 0,
-  showGamesList,
+  showGamesList: showGamesList.show,
 });
 
 const mapDispatchToProps = dispatch => ({

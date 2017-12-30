@@ -9,6 +9,11 @@ const mapStateToProps = ({ games, names, fetchStatus }) => ({
 
 const mapDispatchToProps = dispatch => ({
   stop: () => dispatch({ type: 'STOP' }),
+  showGamesList: gameIndex =>
+    dispatch({
+      type: 'SHOW_GAMES_LIST',
+      payload: { show: true, index: gameIndex },
+    }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

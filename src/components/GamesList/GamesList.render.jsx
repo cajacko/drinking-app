@@ -19,6 +19,12 @@ import {
 import Button from 'components/Button';
 
 class GamesList extends PureComponent {
+  componentDidMount() {
+    if (typeof this.props.scrollTo === 'number') {
+      document.getElementById(`game-${this.props.scrollTo}`).scrollIntoView();
+    }
+  }
+
   render() {
     const text = '{player1} can give {player2} any number of fingers.';
     return (
@@ -46,7 +52,7 @@ class GamesList extends PureComponent {
             <Heading>Games</Heading>
             <List>
               {this.props.games.map((game, i) => (
-                <Game key={game}>
+                <Game key={game} id={`game-${i}`}>
                   <GameText
                     value={this.props.updates[i] || game}
                     onChange={event => this.props.changeGameText(event, i)}

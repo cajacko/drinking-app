@@ -62,6 +62,7 @@ class GamesListComponent extends PureComponent {
   render() {
     return (
       <GamesList
+        scrollTo={this.props.scrollTo}
         updates={this.state.updates}
         update={this.update}
         changeGameText={this.changeGameText}
