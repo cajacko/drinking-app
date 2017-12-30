@@ -5,6 +5,7 @@ const mapStateToProps = ({ names }) => ({ names });
 
 const mapDispatchToProps = dispatch => ({
   start: names => dispatch({ type: 'START', payload: names }),
+  goToGames: () => dispatch({ type: 'SHOW_GAMES_LIST', payload: true }),
 });
 
 // Connect the component to redux via "connect".

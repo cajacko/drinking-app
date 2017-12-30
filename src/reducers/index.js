@@ -5,10 +5,11 @@ import names from 'reducers/names';
 import started from 'reducers/started';
 import games from 'reducers/games';
 import fetchStatus from 'reducers/fetchStatus';
+import showGamesList from 'reducers/showGamesList';
 
 const config = {
   key: 'root',
-  blacklist: ['fetchStatus', 'started'],
+  blacklist: ['fetchStatus', 'started', 'showGamesList'],
   storage,
 };
 
@@ -17,4 +18,5 @@ export default persistCombineReducers(config, {
   started,
   games,
   fetchStatus,
+  showGamesList,
 });

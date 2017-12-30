@@ -61,6 +61,7 @@ class FormComponent extends PureComponent {
         start={this.start}
         delete={this.delete}
         setInputRef={this.setInputRef}
+        goToGames={this.props.goToGames}
       />
     );
   }

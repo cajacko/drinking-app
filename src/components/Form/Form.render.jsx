@@ -42,6 +42,7 @@ class Form extends PureComponent {
             </Button>
           </InputContainer>
           <Button onClick={this.props.start}>Start</Button>
+          <Button onClick={this.props.goToGames}>Games list</Button>
         </InnerContainer>
       </Container>
     );
