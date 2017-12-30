@@ -29,7 +29,8 @@ class Api {
   }
 
   setGames(games) {
-    console.warn(games);
+    return Promise.resolve();
+
     return fetch(this.url, {
       headers: {
         Accept: 'application/json',

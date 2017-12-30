@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Container, Scroll } from 'components/App/App.style';
 import Form from 'components/Form';
 import Game from 'components/Game';
+import GamesList from 'components/GamesList';
 
 class App extends PureComponent {
   componentDidMount() {
@@ -9,9 +10,19 @@ class App extends PureComponent {
   }
 
   render() {
+    let Content;
+
+    if (this.props.showGamesList) {
+      Content = <GamesList />;
+    } else if (this.props.started) {
+      Content = <Game />;
+    } else {
+      Content = <Form />;
+    }
+
     return (
       <Container>
-        <Scroll>{this.props.started ? <Game /> : <Form />}</Scroll>
+        <Scroll>{Content}</Scroll>
       </Container>
     );
   }
