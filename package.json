@@ -6,8 +6,9 @@
     "start": "webpack-dev-server",
     "test:lint": "eslint --ext .js --ext .jsx src",
     "test": "yarn test:lint",
-    "deploy": "yarn build && firebase deploy",
-    "build": "webpack --progress --colors --env.production "
+    "deploy": "firebase deploy",
+    "build": "webpack --progress --colors --env.production",
+    "login": "firebase login --reauth"
   },
   "main": "index.js",
   "repository": "https://github.com/cajacko/drinking-app.git",

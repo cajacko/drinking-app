@@ -45,6 +45,7 @@ export const Background = styled.div`
   flex-direction: column;
   cursor: pointer;
   padding: 0 20px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
 export const Heading = styled.h1`
