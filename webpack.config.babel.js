@@ -5,6 +5,7 @@ import { resolve, join } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackChunkHash from 'webpack-chunk-hash';
 import ManifestPlugin from 'webpack-manifest-plugin';
+import AppCachePlugin from 'appcache-webpack-plugin';
 
 module.exports = {
   entry: {
@@ -37,6 +38,9 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
+    new AppCachePlugin({
+      output: 'drink.appcache',
+    }),
     new ManifestPlugin({
       seed: {
         name: 'Drink',

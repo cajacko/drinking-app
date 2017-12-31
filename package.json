@@ -16,6 +16,7 @@
   "author": "Charlie Jackson",
   "license": "MIT",
   "devDependencies": {
+    "appcache-webpack-plugin": "^1.3.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.1.0",
     "babel-loader": "^7.1.2",
