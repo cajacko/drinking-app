@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import Icon from 'components/Icon';
 import {
   Container,
   Heading,
@@ -15,15 +16,21 @@ class Game extends PureComponent {
     if (this.props.game) {
       return (
         <Container colour={this.props.colour}>
-          <Stop onClick={this.props.stop}>Stop</Stop>
-          <Edit onClick={this.props.edit}>Edit</Edit>
+          <Stop onClick={this.props.stop}>
+            <Icon icon="hand-paper-o" colour="WHITE" />
+          </Stop>
+          <Edit onClick={this.props.edit}>
+            <Icon icon="edit" colour="WHITE" />
+          </Edit>
 
           <Background onClick={this.props.next}>
             <Text>{this.props.game}</Text>
           </Background>
 
           <Footer>
-            <Next onClick={this.props.next}>Next</Next>
+            <Next onClick={this.props.next}>
+              <Icon icon="forward" colour="WHITE" />
+            </Next>
           </Footer>
         </Container>
       );

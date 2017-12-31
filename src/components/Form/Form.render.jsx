@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import Icon from 'components/Icon';
 import {
   Container,
   InnerContainer,
@@ -22,7 +23,7 @@ class Form extends PureComponent {
                 <ListItem key={name}>
                   <Name>{name}</Name>
                   <Button onClick={event => this.props.delete(event, name)}>
-                    Delete
+                    <Icon icon="close" colour="WHITE" />
                   </Button>
                 </ListItem>
               ))}
@@ -39,12 +40,16 @@ class Form extends PureComponent {
             />
 
             <Button onClick={this.props.add} type="submit">
-              Add
+              <Icon icon="plus" colour="WHITE" />
             </Button>
           </InputContainer>
-          <Button onClick={this.props.start}>Start</Button>
+          <Button onClick={this.props.start}>
+            <Icon icon="play" colour="WHITE" />
+          </Button>
           <GameList>
-            <Button onClick={this.props.goToGames}>Games list</Button>
+            <Button onClick={this.props.goToGames}>
+              <Icon icon="list" colour="WHITE" />
+            </Button>
           </GameList>
         </InnerContainer>
       </Container>
