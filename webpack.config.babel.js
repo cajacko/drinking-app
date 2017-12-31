@@ -60,13 +60,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: (() => {
-      if (/^win/.test(process.platform)) {
-        return join(__dirname, 'src/assets/');
-      }
-
-      return join(__dirname, '../src/assets/');
-    })(),
+    contentBase: join(__dirname, 'src/assets/'),
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
