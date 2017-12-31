@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import { resolve, join } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackChunkHash from 'webpack-chunk-hash';
+import ManifestPlugin from 'webpack-manifest-plugin';
 
 module.exports = {
   entry: {
@@ -36,6 +37,26 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
+    new ManifestPlugin({
+      seed: {
+        name: 'Drink',
+        icons: [
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/android-chrome-384x384.png',
+            sizes: '384x384',
+            type: 'image/png',
+          },
+        ],
+        theme_color: '#f6f6ee',
+        background_color: '#f6f6ee',
+        display: 'standalone',
+      },
+    }),
     // Auto generates the index.html file from our template
     new HtmlWebpackPlugin({ template: join(__dirname, 'src/index.html') }),
     new webpack.optimize.UglifyJsPlugin({
