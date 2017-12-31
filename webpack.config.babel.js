@@ -3,6 +3,7 @@ require('dotenv').config();
 import webpack from 'webpack';
 import { resolve, join } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackChunkHash from 'webpack-chunk-hash';
 
 module.exports = {
   entry: {
@@ -50,12 +51,31 @@ module.exports = {
       },
       comments: false,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: (module) => {
+        if (!module.context) {
+          return false;
+        }
+
+        if (module.context.indexOf('node_modules') !== -1) {
+          return true;
+        }
+
+        return false;
+      },
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['manifest'], // Specify the common bundle's name.
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new WebpackChunkHash(),
     new webpack.DefinePlugin({
       'process.env.MYJSONID': `'${process.env.MYJSONID}'`,
     }),
   ],
   output: {
-    filename: '[name].js',
+    filename: '[chunkhash].[name].js',
     path: resolve(__dirname, 'dist'),
   },
   devtool: 'cheap-module-eval-source-map',
