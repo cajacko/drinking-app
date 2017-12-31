@@ -22,7 +22,10 @@ class Form extends PureComponent {
               {this.props.names.map(name => (
                 <ListItem key={name}>
                   <Name>{name}</Name>
-                  <Button onClick={event => this.props.delete(event, name)}>
+                  <Button
+                    theme="GREY"
+                    onClick={event => this.props.delete(event, name)}
+                  >
                     <Icon icon="close" colour="WHITE" />
                   </Button>
                 </ListItem>

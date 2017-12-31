@@ -78,6 +78,7 @@ class GamesList extends PureComponent {
                     </Update>
                     <Remove>
                       <Button
+                        theme="GREY"
                         onClick={event => this.props.removeGame(event, i)}
                       >
                         <Icon icon="trash" colour="WHITE" />
