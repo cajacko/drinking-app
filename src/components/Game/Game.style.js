@@ -36,6 +36,7 @@ export const Container = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
+  transition: background 0.5s;
 `;
 
 export const Background = styled.div`
